@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 8081;
 
 
-const invList = require('./models')
+const db = require('./models')
 
 
 
@@ -20,7 +20,7 @@ const htmlRoutes = require('./routing/html-routes')(app);
 // app.use(htmlRoutes)
 
 
-invList.sequelize.sync().then(function () {
+db.sequelize.sync({}).then(function () {
   console.log('Database is synced!');
   app.listen(PORT, function () {
     console.log('listening on http://localhost:' + PORT);
