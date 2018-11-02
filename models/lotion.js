@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     
-  const lotionInv = sequelize.define('lotionInv', {
+  const lotion = sequelize.define('lotion', {
 
       item_discription: {
         type: DataTypes.STRING,
@@ -28,6 +28,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   
-    return lotionInv;
+    return lotion;
       
   }  

@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 const app = express();
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8070;
 
 
 const db = require('./models')
@@ -15,6 +15,7 @@ app.use(express.json());
 
 const routes = require('./routing/api-routes')(app);
 const htmlRoutes = require('./routing/html-routes')(app);
+const employeeRoutes = require('./routing/employee-api-routes')(app);
 
 // app.use(routes)
 // app.use(htmlRoutes)

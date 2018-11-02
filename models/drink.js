@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-const drinkInv = sequelize.define('drinkInv', {
+const drink = sequelize.define('drink', {
 
     item_discription: {
       type: DataTypes.STRING,
@@ -28,5 +28,5 @@ const drinkInv = sequelize.define('drinkInv', {
     }
   });
 
-  return drinkInv;
+  return drink;
 }
