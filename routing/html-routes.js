@@ -15,4 +15,8 @@ app.get('/employee', function(req,res){
 app.get('/recipe', function(req, res){
     res.sendFile(path.join(__dirname, "../public/recipe.html"));
 });
+
+app.get('/inventory', function(req, res){
+    res.sendFile(path.join(__dirname, "../public/inventory.html"));
+});
 }

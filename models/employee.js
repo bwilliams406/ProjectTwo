@@ -2,17 +2,17 @@ module.exports = function(sequelize, DataTypes) {
 
     const employee = sequelize.define('employee', {
     
-        name: {
+       name: {
           type: DataTypes.STRING,
           allowNull: false
         },
     
-        phone_number: {
+       phone_number: {
           type: DataTypes.STRING,
           allowNull: false
         },
     
-        office_number: {
+       office_number: {
           type: DataTypes.STRING,
           allowNull: false
         },

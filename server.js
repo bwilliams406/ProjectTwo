@@ -13,10 +13,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const routes = require('./routing/api-routes')(app);
 const htmlRoutes = require('./routing/html-routes')(app);
 const employeeRoutes = require('./routing/employee-api-routes')(app);
 const recipeRoutes = require('./routing/recipeRoutes')(app);
+const inventoryRoutes = require('./routing/inventoryRoutes')(app);
 
 // app.use(routes)
 // app.use(htmlRoutes)

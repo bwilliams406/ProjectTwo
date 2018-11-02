@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link  type=text/css rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link type=text/css rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Sign In</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+<!-- -->
+
+
+
+<div class="container">
+
+<div class="card-body">
+    <form role="form">
+      <div class="form-group">
+        <label for="item_discription">Item Discription</label>
+        <input type="text" class="form-control" id="item_discription">
+      </div>
+      <div class="form-group">
+        <label for="part_number">Part Number</label>
+        <input type="text" class="form-control" id="part_number">
+      </div>
+      <div class="form-group">
+        <label for="weight_needed">Item Weight Needed</label>
+        <input type="text" class="form-control" id="weight_needed">
+      </div>
+      <div class="form-group">
+        <label for="amount_instock">Amount In Stock</label>
+        <input type="text" class="form-control" id="amount_instock">
+      </div>
+      <div class="form-group">
+        <label for="in_stock">In Stock</label>
+        <input type="text" class="form-control" id="in_stock">
+      </div>
+      <button type="submit" class="btn btn-primary submit" data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
+    </form>
+  </div>
+
+
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle"> Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Item Added 
+        </div>
+        <div class="modal-footer">
+          <a href="./inventory.html" type="button" class="btn btn-outline-secondary">Continue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<!-- <script src="../public/assets/bootstrap/js/jquery-3.3.1.min.js"></script> -->
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<!-- <script src="./assets/bootstrap/js/jquery-3.3.1.js"></script> -->
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="./assets/js/inventory.js"></script>
+</html>
