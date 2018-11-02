@@ -16,6 +16,7 @@ app.use(express.json());
 const routes = require('./routing/api-routes')(app);
 const htmlRoutes = require('./routing/html-routes')(app);
 const employeeRoutes = require('./routing/employee-api-routes')(app);
+const recipeRoutes = require('./routing/recipeRoutes')(app);
 
 // app.use(routes)
 // app.use(htmlRoutes)

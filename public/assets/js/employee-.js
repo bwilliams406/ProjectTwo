@@ -78,9 +78,5 @@ $('.submit').on('click', function(event) {
 
   render();
   
-  
-  
-    // Getting the initial list of Authors
-    getemployees();
-  
+
   });
