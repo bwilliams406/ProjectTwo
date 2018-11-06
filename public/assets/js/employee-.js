@@ -30,6 +30,7 @@ $('.submit').on('click', function(event) {
     console.log(newEmployee);
 
 
+
     $.post('/api/employee', newEmployee,
       function(data) {
 

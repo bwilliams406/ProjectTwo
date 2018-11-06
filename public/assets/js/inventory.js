@@ -6,7 +6,7 @@
  
 $( function() {
 
-//==================================for updating ANDREW******=========================================================
+//==================================for updating =========================================================
 
 
 let currentStock = "";
@@ -18,7 +18,7 @@ let currentId = "";
   })
 
 
-  $('#order').on('click', function(event) {
+  $('#updateQ').on('click', function(event) {
       console.log("works")
       event.preventDefault();
       
@@ -27,13 +27,13 @@ let currentId = "";
           amount_instock:$("#quantityToOrder").val() + currentStock
       }
   
-      let updateInventory = $("#order").val(); 
+      let updateInventory = $("#updateQ").val(); 
 
       
 
       let currentInventory = $(this).data("currentInventory")
 
-      updateInventory:currentInventory + $("#order").val()
+      updateInventory:currentInventory + $("#updateQ").val()
 
       console.log(currentInventory);
       $.ajax({
@@ -47,12 +47,13 @@ let currentId = "";
 
   });
 
-  //$("#partNumber").append(`<option value=${inventoryData.part_number} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+ 
 
 //=============================== for adding data to db==================================================================
 
 // Click listener for the submit button
 $('.submit').on('click', function(event) {
+  console.log("clickedddd")
    event.preventDefault();
 
    // Here we grab the form elements
@@ -62,7 +63,8 @@ $('.submit').on('click', function(event) {
     weight_needed: $('#weight_needed').val().trim(),
     amount_instock: $('#amount_instock').val().trim(),
     in_stock: $('#in_stock').val().trim()
-   }
+   } 
+   console.log(newInventory)
 
    for(let key in newInventory){
      if(newInventory[key] === ''){
@@ -73,6 +75,8 @@ $('.submit').on('click', function(event) {
 
 
    console.log(newInventory);
+
+
 
 
    $.post('/api/inventory', newInventory,
@@ -86,6 +90,9 @@ $('.submit').on('click', function(event) {
        }
      });
  });
+
+
+
  
 
 //======================================================================================================
@@ -109,7 +116,8 @@ $('.submit').on('click', function(event) {
     
     
 // for rendering items into drop downlist on update page
-  $("#partNumber").append(`<option value=${inventoryData.part_number} data-id=${inventoryData.id} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+$("#partNumber").append(`<option value=${inventoryData.part_number} data-id=${inventoryData.id} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+
 
 
   // renders DB on inventory page
@@ -130,7 +138,7 @@ $('.submit').on('click', function(event) {
 //============================= for deleting =====================================================
 
 $("tbody").on("click",".close",function(){
- 
+
  let rowId = $(this).data("id");
  console.log(rowId);
  $.ajax({

@@ -38,24 +38,39 @@
 
 <!-- -->
 
-<div class="body">
-    <h1 class="h1">Sign In</h1>
+<form id="signin" name="signin" method="post" action="signin">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control text" name="email" type="text" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <button class="btn btn-outline-secondary" type="submit" value="Sign In" >Log In</button>
+</form>
 
-    <form class="signin">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <a href="./admin.html" type="button" class="btn btn-outline-secondary">Sign In</a>
+
+
+
+<!-- <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#loginmodal">Log In</button>
+
+<div class="modal fade bd-example-modal-lg" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+ 
+      <form id="signin" name="signin" method="post" action="signin">
+        <label for="email">Email Address</label>
+        <input class="text" name="email" type="text" />
+        <label for="password">Password</label>
+        <input name="password" type="password" />
+        <input class="btn" type="submit" value="Sign In" />
       </form>
 
-</div>
 
+    </div>
+  </div>
+</div> -->
 
 
 <!-- <script src="../public/assets/bootstrap/js/jquery-3.3.1.min.js"></script> -->
@@ -63,6 +78,7 @@
 <!-- <script src="./assets/bootstrap/js/jquery-3.3.1.js"></script> -->
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <!-- <script src="../public/assets/app.js"></script> -->
-<script src="/assets/js/app.js"></script>
+<script src="../views/signin.hbs"></script>
+
 </body>
 </html>

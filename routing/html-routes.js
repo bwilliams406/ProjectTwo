@@ -19,4 +19,8 @@ app.get('/recipe', function(req, res){
 app.get('/inventory', function(req, res){
     res.sendFile(path.join(__dirname, "../public/inventory.html"));
 });
+
+app.get('/', function(req, res){
+    res.send('Welcome to Passport with Sequelize');
+  });
 }
