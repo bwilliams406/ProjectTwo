@@ -44,7 +44,7 @@ app.get('/api/employee', function(req, res) {
   });
 
   // DELETE route for deleting authors
-  app.delete('/api/employee', function(req, res) {
+  app.delete('/api/employee/:id', function(req, res) {
     db.employee.destroy({
       where: {
         id: req.params.id

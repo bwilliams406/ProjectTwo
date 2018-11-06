@@ -28,33 +28,33 @@ app.get('/api/inventory', function(req, res) {
 
 
 
-  // // PUT route for updating authors
-  // app.put('/api/inventory/:id', function(req, res) {
-  //   db.inventory.update(
-  //     req.body,
-  //     {
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //   }).then(function(dbinventory) {
-  //     res.json(dbPost);
-  //   }).catch(function(error) {
-  //     res.json({ error: error });
-  //   });
-  // });
+  // PUT route for updating 
+  app.put('/api/inventory/:id', function(req, res) {
+    db.inventory.update(
+      req.body,
+      {
+        where: {
+          id: req.params.id
+        }
+    }).then(function(dbinventory) {
+      res.json(dbinventory);
+    }).catch(function(error) {
+      res.json({ error: error });
+    });
+  });
 
-  // // DELETE route for deleting authors
-  // app.delete('/api/inventory/:id', function(req, res) {
-  //   db.inventory.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbinventory) {
-  //     res.json(dbinventory);
-  //   }).catch(function(error) {
-  //     res.json({ error: error });
-  //   });
-  // });
+  // DELETE route for deleting 
+  app.delete('/api/inventory/:id', function(req, res) {
+    db.inventory.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbinventory) {
+      res.json(dbinventory);
+    }).catch(function(error) {
+      res.json({ error: error });
+    });
+  });
      
 
 

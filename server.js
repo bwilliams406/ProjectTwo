@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 const app = express();
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8080;
 
 
 const db = require('./models')
@@ -18,8 +18,7 @@ const employeeRoutes = require('./routing/employee-api-routes')(app);
 const recipeRoutes = require('./routing/recipeRoutes')(app);
 const inventoryRoutes = require('./routing/inventoryRoutes')(app);
 
-// app.use(routes)
-// app.use(htmlRoutes)
+
 
 
 db.sequelize.sync({}).then(function () {

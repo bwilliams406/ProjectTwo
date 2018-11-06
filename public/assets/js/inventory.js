@@ -6,6 +6,46 @@
  
 $( function() {
 
+//==================================for updating ANDREW******=========================================================
+
+
+let currentStock = "";
+  $("#partNumber").on("change", function(){
+    currentStock = $(this).find(":selected").data("currentstock");
+    console.log("bitching", currentStock)
+  })
+
+  $('#order').on('click', function(event) {
+      console.log("works")
+      event.preventDefault();
+      
+      let order = {
+          part_number:$("#partNumber").val(),
+          amount_instock:$("#quantityToOrder").val() + currentStock
+      }
+  
+      let updateInventory = $("#order").val(); 
+
+      
+
+      let currentInventory = $(this).data("currentInventory")
+
+      updateInventory:currentInventory + $("#order").val()
+
+      console.log(currentInventory);
+      $.ajax({
+        url:"/api/inventory" + currentInventory,
+        method:"PUT"
+      }).then(function(response){
+        console.log(response)
+      })
+
+
+  });
+
+  //$("#partNumber").append(`<option value=${inventoryData.part_number} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+
+//=============================== for adding data to db==================================================================
 
 // Click listener for the submit button
 $('.submit').on('click', function(event) {
@@ -44,44 +84,58 @@ $('.submit').on('click', function(event) {
  });
  
 
-
+//======================================================================================================
 
  
-  // Function for creating a new list row for inventory
+    // Function for creating a new list row for inventory
  const createInventoryRow = function (inventoryData) {
-   console.log(inventoryData);
-   const newTr = $(`<tr class="delete" data-id=${inventoryData.id}>`);
-   newTr.data('inventory', inventoryData);
-   newTr.append(`<td>${inventoryData.item_discription}</td>`);
-   newTr.append(`<td>${inventoryData.part_number}</td>`);
-   newTr.append(`<td>${inventoryData.weight_needed}</td>`);
-   newTr.append(`<td>${inventoryData.amount_instock}</td>`);
-   newTr.append(`<td>${inventoryData.in_stock}</td>`);
-   newTr.append(`<td><button type="button" class="close" aria-label="Close">
-   <span aria-hidden="true">&times;</span>
- </button></td>`);
-   return newTr;
+  console.log(inventoryData);
 
- }
 
- $("#inventory-form").on("click",".delete",function(){
-	
-	let rowId = $(this).data("id");
-	console.log(rowId);
+  let in_stock = inventoryData.in_stock;
+  if(in_stock){
+    in_stock = "Yes"
+  }
+  else{
+    in_stock = "No"
+  }
 
+
+
+    
+    
+// for rendering items into drop downlist on update page
+  $("#partNumber").append(`<option value=${inventoryData.part_number} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+
+
+  // renders DB on inventory page
+  const newTr = $(`<tr class="delete">`);
+  newTr.data('inventory', inventoryData);
+  newTr.append(`<td>${inventoryData.item_discription}</td>`);
+  newTr.append(`<td>${inventoryData.part_number}</td>`);
+  newTr.append(`<td>${inventoryData.weight_needed}</td>`);
+  newTr.append(`<td>${inventoryData.amount_instock}</td>`);
+  newTr.append(`<td>${in_stock}</td>`);
+  newTr.append(`<td class="close" data-id=${inventoryData.id}><button type="button"aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button></td>`);
+  return newTr;
+
+}
+
+//============================= for deleting =====================================================
+
+$("tbody").on("click",".close",function(){
+ 
+ let rowId = $(this).data("id");
+ console.log(rowId);
+ $.ajax({
+   url:"/api/inventory/" + rowId,
+   method:"DELETE"
+ }).then(function(response){
+   console.log(response)
+ })
 })
-
-
-  $('#delrow').on('click', function(){
-    console.log('it clicks')
-    $(".Check1").each(function(){
-      var obj = $(this);
-      if (this.checked) {
-        $(obj).closest("tr").remove();
-      }
-      return false;  
-    });
-  });
 
 
 
@@ -114,46 +168,6 @@ $('.submit').on('click', function(event) {
 
 
 
+  
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

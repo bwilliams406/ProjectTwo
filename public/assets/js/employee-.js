@@ -47,16 +47,38 @@ $('.submit').on('click', function(event) {
    // Function for creating a new list row for employees
   const createEmployeeRow = function (employeeData) {
     console.log(employeeData);
-    const newTr = $('<tr>');
+    let full_time = employeeData.full_time;
+    if(full_time){
+      full_time = "Yes"
+    }
+    else{
+      full_time = "No"
+    }
+    const newTr = $(`<tr class="delete">`);
     newTr.data('employee', employeeData);
     newTr.append(`<td>${employeeData.name}</td>`);
     newTr.append(`<td>${employeeData.phone_number}</td>`);
     newTr.append(`<td>${employeeData.office_number}</td>`);
     newTr.append(`<td>${employeeData.Email}</td>`);
-    newTr.append(`<td>${employeeData.full_time}</td>`);
+    newTr.append(`<td>${full_time}</td>`);
+    newTr.append(`<td class="close" data-id=${employeeData.id}><button type="button"aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button></td>`);
     return newTr;
 
   }
+
+  $("tbody").on("click",".close",function(){
+ 
+    let rowId = $(this).data("id");
+    console.log(rowId);
+    $.ajax({
+      url:"/api/employee/" + rowId,
+      method:"DELETE"
+    }).then(function(response){
+      console.log(response)
+    })
+   })
   
   // Function for retrieving employees and getting them ready to be rendered to the page
   const render = function () {

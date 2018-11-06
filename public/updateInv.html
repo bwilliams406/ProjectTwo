@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <link  type=text/css rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link type=text/css rel="stylesheet" href="/assets/styles.css">
+ 
 </head>
 <body>
     
@@ -40,50 +42,28 @@
     </nav>
 
 
-<!-- -->
+<div class="orderpg">
 
-
-
-<a href="./newInventory.html" type="button" class="btn btn-outline-dark">Add Item</a>
-
-<div class="container">
-
-  <div class="row1">
-    <div class="col-md-12 ">
-      <div class="inventory-container">
-        <h1>inventory</h1>
-        <table class="table table-hover table-dark">
-          <thead>
-           <tr>
-              <th>Item Discription</th>
-              <th>Part Number</th>
-              <th>Weight Needed</th>
-              <th>Amount In Stock</th>
-              <th>In Stock</th>
-            </tr> 
-          </thead>
-          <tbody>
-            <tr id="form-row">
-              <form id="inventory-form">
-                
-              </form>
-            </tr>
-          </tbody>
-        </table>
+      <div class="input-group mb-3">
+        <select class="custom-select" id="partNumber">
+          <option selected>Item Discription</option>
+        </select>
       </div>
-    </div>
-  </div>
+
+      <div class="input-group mb-3">
+        <input type="number" id="quantityToOrder" placeholder="How Many?"/>
+      </div>
+
+
+
+      <button type="button" class="btn btn-outline-secondary" data-toggle="modal" id="order" data-target="">
+        Place Order
+      </button>
+
 
 </div>
 
-
-
-
-
-
-
-
-
+  
 
 <!-- <script src="../public/assets/bootstrap/js/jquery-3.3.1.min.js"></script> -->
 <script src="/assets/js/jquery-3.3.1.js"></script>
