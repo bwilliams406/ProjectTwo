@@ -10,10 +10,13 @@ $( function() {
 
 
 let currentStock = "";
+let currentId = "";
   $("#partNumber").on("change", function(){
     currentStock = $(this).find(":selected").data("currentstock");
-    console.log("bitching", currentStock)
+    currentId = $(this).find(":selected").data("id");
+    console.log(currentStock,currentId)
   })
+
 
   $('#order').on('click', function(event) {
       console.log("works")
@@ -34,7 +37,7 @@ let currentStock = "";
 
       console.log(currentInventory);
       $.ajax({
-        url:"/api/inventory" + currentInventory,
+        url:"/api/inventory/"  + currentId,
         method:"PUT"
       }).then(function(response){
         console.log(response)
@@ -105,7 +108,7 @@ $('.submit').on('click', function(event) {
     
     
 // for rendering items into drop downlist on update page
-  $("#partNumber").append(`<option value=${inventoryData.part_number} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
+  $("#partNumber").append(`<option value=${inventoryData.part_number} data-id=${inventoryData.id} data-currentStock=${inventoryData.amount_instock}>${inventoryData.item_discription}</option>`)
 
 
   // renders DB on inventory page
