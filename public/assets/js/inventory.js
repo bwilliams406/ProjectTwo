@@ -38,7 +38,8 @@ let currentId = "";
       console.log(currentInventory);
       $.ajax({
         url:"/api/inventory/"  + currentId,
-        method:"PUT"
+        method:"PUT",
+        data:order
       }).then(function(response){
         console.log(response)
       })
