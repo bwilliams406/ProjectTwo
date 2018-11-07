@@ -26,11 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // For Handlebars
-app.set('views', './views')
-app.engine('hbs', exphbs({ extname: '.hbs' }));
+// app.set('views', './views')
+app.engine('hbs', exphbs({ defaultLayout: "main", layoutsDir:'./views/layouts', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
-
+//load passport strategies
+require('./config/passport/passport')(passport, models.user);
 
 //Routes
 const authRoute = require('./routing/auth')(app, passport);
@@ -38,9 +39,8 @@ const htmlRoutes = require('./routing/html-routes')(app);
 const employeeRoutes = require('./routing/employee-api-routes')(app);
 const recipeRoutes = require('./routing/recipeRoutes')(app);
 const inventoryRoutes = require('./routing/inventoryRoutes')(app);
+const userRoutes = require('./routing/userRoutes')(app);
 
-//load passport strategies
-require('./config/passport/passport')(passport, models.user);
 
 
 db.sequelize.sync({}).then(function () {

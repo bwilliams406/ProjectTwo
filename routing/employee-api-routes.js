@@ -4,58 +4,60 @@ const path = require('path');
 
 
 
-module.exports = function(app) {
-// POST route for adding new authors
-app.post('/api/employee', function(req, res) {
-    db.employee.create(req.body).then(function(dbemployee) {
-      res.json(dbemployee);
-    }).catch(function(error) {
+module.exports = function (app) {
+  // POST route for adding new authors
+  app.post('/api/employee', function (req, res) {
+    db.employee.create(req.body).then(function (dbemployee) {
+      console.log("Posted")
+      res.json({ success: true, user: dbemployee });
+    }).catch(function (error) {
       res.json({ error: error });
     });
   });
 
 
 
-app.get('/api/employee', function(req, res) {
-  db.employee.findAll({
-    // include: [db.Post]
-  }).then(function(employee) {
-    res.json(employee);
-  }).catch(function(error) {
-    res.json({ error: error });
+  app.get('/api/employee', function (req, res) {
+    db.employee.findAll({
+      // include: [db.Post]
+    }).then(function (employee) {
+      res.json(employee);
+    }).catch(function (error) {
+      res.json({ error: error });
+    });
   });
-});
 
 
 
   // PUT route for updating authors
-  app.put('/api/employee/:id', function(req, res) {
+  app.put('/api/employee/:id', function (req, res) {
     db.employee.update(
       req.body,
       {
         where: {
           id: req.params.id
         }
-    }).then(function(dbemployee) {
-      res.json(dbPost);
-    }).catch(function(error) {
-      res.json({ error: error });
-    });
+      }).then(function (dbemployee) {
+        res.json(dbPost);
+      }).catch(function (error) {
+        res.json({ error: error });
+      });
   });
 
   // DELETE route for deleting authors
-  app.delete('/api/employee/:id', function(req, res) {
+  app.delete('/api/employee/:id', function (req, res) {
     db.employee.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbemployee) {
+    }).then(function (dbemployee) {
       res.json(dbemployee);
-    }).catch(function(error) {
+    }).catch(function (error) {
       res.json({ error: error });
     });
   });
-     
+
+
 
 
 

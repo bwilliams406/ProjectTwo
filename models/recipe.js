@@ -1,6 +1,6 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
-const recipe = sequelize.define('recipe', {
+  const recipe = sequelize.define('recipe', {
 
     item_discription: {
       type: DataTypes.STRING,
@@ -17,10 +17,10 @@ const recipe = sequelize.define('recipe', {
       allowNull: false
     },
 
-   amount_instock: {
-       type:DataTypes.FLOAT,
-       allowNull: false
-   },
+    amount_instock: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    },
 
     in_stock: {
       type: DataTypes.BOOLEAN,

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type=text/css rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link type=text/css rel="stylesheet" href="/assets/styles.css">
+  <link href="/assets/theme.css" rel="stylesheet">
+  <link href="/assets/template.css" rel="stylesheet">
+</head>
+
+<style>
+  header {
+          background-image: url('https://images.unsplash.com/photo-1503756043224-101dab0dcb30?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4bd62d181f78bd2f85ab23a677acd6f4&auto=format&fit=crop&w=1600&q=80');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center top;
+      }
+  </style>
+
+<body data-spy="scroll" data-target="#navbar1" data-offset="60">
+  <header class="bg-primary">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12">
+          <div class="text-center m-0 vh-100 d-flex flex-column justify-content-center text-light">
+            <div class="row">
+              <div class="col-lg-4 col-sm-6 mx-auto">
+               
+              
+              </div>  
+{{{body}}}
+
+            </div>                
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="navbar1">
+    <div class="container">
+      <a class="navbar-brand mr-1 mb-1 mt-0" href="">Welcome {{user.firstname}}</a>
+      <ul class="navbar-nav ml-auto">
+
+
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employee">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/inventory">Inventory</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recipe">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Add User</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+   
+
+ 
+
+
+  <div id="modal2" class="modal fade d-block position-relative bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Modal</h3>
+
+        </div>
+        <div class="modal-body">
+
+          <div class="card border-primary h-100">
+            <div class="card-body d-flex flex-column align-items-start">
+              <form role="form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="phoneNum">Phone Number</label>
+                  <input type="text" class="form-control" id="phoneNum">
+                </div>
+                <div class="form-group">
+                  <label for="officeNum">Office Number</label>
+                  <input type="text" class="form-control" id="officeNum">
+                </div>
+                <div class="form-group">
+                  <label for="Email">Email</label>
+                  <input type="text" class="form-control" id="Email">
+                </div>
+                <div class="form-group">
+                  <label for="fulltime">Full Time</label>
+                  <input type="text" class="form-control" id="fulltime">
+                </div>
+              </form>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-secondary submit">Continue</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ======================================================================================================================= -->
+
+  <div id="modal3" class="modal fade d-block position-relative bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+
+        </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <select class="custom-select" id="partNumber">
+              <option selected>Item Discription</option>
+            </select>
+          </div>
+
+          <div class="form-group row">
+            <input type="number" id="quantityToOrder" placeholder="How Many?" />
+          </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary close" data-toggle="modal" id="updateQ" data-target="">
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+ </div>
+    <!-- ================================================================================================================== -->
+
+    <div id="modal4" class="modal fade d-block position-relative bd-example-modal-lg" tabindex="-1" role="dialog"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Modal</h3>
+          </div>
+          <div class="modal-body">
+
+            <div class="card border-primary h-100">
+              <div class="card-body d-flex flex-column align-items-start">
+            <form role="form">
+              <div class="form-group">
+                <label for="item_discription">Item Discription</label>
+                <input type="text" class="form-control" id="item_discription">
+              </div>
+              <div class="form-group">
+                <label for="part_number">Part Number</label>
+                <input type="text" class="form-control" id="part_number">
+              </div>
+              <div class="form-group">
+                <label for="weight_needed">Item Weight Needed</label>
+                <input type="text" class="form-control" id="weight_needed">
+              </div>
+              <div class="form-group">
+                <label for="amount_instock">Amount In Stock</label>
+                <input type="text" class="form-control" id="amount_instock">
+              </div>
+              <div class="form-group">
+                <label for="in_stock">In Stock</label>
+                <input type="text" class="form-control" id="in_stock">
+              </div>
+            </form>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-secondary submit">Continue</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================================================== -->
+
+
+    <script src="/assets/js/jquery-3.3.1.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+</body>
+
+</html>

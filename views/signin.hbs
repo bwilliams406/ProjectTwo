@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<form id="signin" name="signin" method="post" action="signin">
-  <label for="email">Email Address</label>
-  <input class="text" name="email" type="text" />
-  <label for="password">Password</label>
-  <input name="password" type="password" />
-  <input class="btn" type="submit" value="Sign In" />
+<form>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control text" name="email" type="text" id="email" aria-describedby="emailHelp"
+      placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button class="btn btn-outline-secondary" id="signin" type="submit" value="Sign In">Log In</button>
 </form>
-
-</body>
-</html>

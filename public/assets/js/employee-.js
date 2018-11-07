@@ -1,27 +1,27 @@
-  // Getting references to the name input and employee container, as well as the table body
-  const nameInput = $('#employee-name');
-  const employeeList = $('tbody');
-  const employeeContainer = $('.employee-container');
-
-  
-$( function() {
+// Getting references to the name input and employee container, as well as the table body
+const empnameInput = $('#employee-name');
+const employeeList = $('tbody');
+const employeeContainer = $('.employee-container');
 
 
-// Click listener for the submit button
-$('.submit').on('click', function(event) {
+$(function () {
+
+
+  // Click listener for the submit button
+  $('.submit').on('click', function (event) {
     event.preventDefault();
 
     // Here we grab the form elements
     const newEmployee = {
-    name: $('#name').val().trim(),
-    phone_number: $('#phoneNum').val().trim(),
-    office_number: $('#officeNum').val().trim(),
-    Email: $('#Email').val().trim(),
-    full_time: $('#fulltime').val().trim()
+      name: $('#name').val().trim(),
+      phone_number: $('#phoneNum').val().trim(),
+      office_number: $('#officeNum').val().trim(),
+      Email: $('#Email').val().trim(),
+      full_time: $('#fulltime').val().trim()
     }
 
-    for(let key in newEmployee){
-      if(newEmployee[key] === ''){
+    for (let key in newEmployee) {
+      if (newEmployee[key] === '') {
         alert('Please fill out all fields');
         return;
       }
@@ -32,27 +32,28 @@ $('.submit').on('click', function(event) {
 
 
     $.post('/api/employee', newEmployee,
-      function(data) {
+      function (data) {
+        console.log(data);
 
-   
         if (data.success) {
 
-          console.log('data', data)
-        
+          //console.log('data', data)
+          window.location.replace("/employee")
+
         }
       });
   });
-  
 
-  
-   // Function for creating a new list row for employees
+
+
+  // Function for creating a new list row for employees
   const createEmployeeRow = function (employeeData) {
     console.log(employeeData);
     let full_time = employeeData.full_time;
-    if(full_time){
+    if (full_time) {
       full_time = "Yes"
     }
-    else{
+    else {
       full_time = "No"
     }
     const newTr = $(`<tr class="delete">`);
@@ -69,37 +70,37 @@ $('.submit').on('click', function(event) {
 
   }
 
-  $("tbody").on("click",".close",function(){
- 
+  $("tbody").on("click", ".close", function () {
+
     let rowId = $(this).data("id");
     console.log(rowId);
     $.ajax({
-      url:"/api/employee/" + rowId,
-      method:"DELETE"
-    }).then(function(response){
+      url: "/api/employee/" + rowId,
+      method: "DELETE"
+    }).then(function (response) {
       console.log(response)
     })
-   })
-  
+  })
+
   // Function for retrieving employees and getting them ready to be rendered to the page
   const render = function () {
-    $.get('/api/employee', function(data) {
-      renderEmployeeList(data); 
-      nameInput.val('');
+    $.get('/api/employee', function (data) {
+      renderEmployeeList(data);
+      empnameInput.val('');
     });
   }
-  
+
   // A function for rendering the list of employees to the page
   const renderEmployeeList = function (data) {
     const rowsToAdd = [];
     for (let i = 0; i < data.length; i++) {
-      rowsToAdd.push( createEmployeeRow(data[i]) );
+      rowsToAdd.push(createEmployeeRow(data[i]));
     }
     employeeList.append(rowsToAdd)
 
-    }
+  }
 
   render();
-  
 
-  });
+
+});
