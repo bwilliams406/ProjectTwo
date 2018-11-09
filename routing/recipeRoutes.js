@@ -5,7 +5,7 @@ const path = require('path');
 
 
 module.exports = function (app) {
-  // POST route for adding new authors
+  // POST route for adding new recipe
   app.post('/api/recipe', function (req, res) {
     db.recipe.create(req.body).then(function (dbrecipe) {
       res.json(dbrecipe);
@@ -28,7 +28,7 @@ module.exports = function (app) {
 
 
 
-  // PUT route for updating authors
+  // PUT route for updating recipe
   app.put('/api/recipe/:id', function (req, res) {
     db.recipe.update(
       req.body,
@@ -43,7 +43,7 @@ module.exports = function (app) {
       });
   });
 
-  // DELETE route for deleting authors
+  // DELETE route for deleting recipe
   app.delete('/api/recipe/:id', function (req, res) {
     db.recipe.destroy({
       where: {

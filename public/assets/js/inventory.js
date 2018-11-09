@@ -160,7 +160,7 @@ $(function () {
 
 
 
-  // Function for retrieving Recipes and getting them ready to be rendered to the page
+  // Function for retrieving inventory and getting them ready to be rendered to the page
   const render = function () {
     $.get('/api/inventory', function (data) {
       renderInventoryList(data);
@@ -168,7 +168,7 @@ $(function () {
     });
   }
 
-  // A function for rendering the list of Recipes to the page
+  // A function for rendering the list of inventory to the page
   const renderInventoryList = function (data) {
     const rowsToAdd = [];
     for (let i = 0; i < data.length; i++) {

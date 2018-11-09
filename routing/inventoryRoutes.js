@@ -5,7 +5,7 @@ const path = require('path');
 
 
 module.exports = function (app) {
-  // POST route for adding new authors
+  // POST route for adding new inventory
   app.post('/api/inventory', function (req, res) {
     db.inventory.create(req.body).then(function (dbinventory) {
       res.json(dbinventory);
