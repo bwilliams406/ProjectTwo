@@ -4,7 +4,7 @@ const app = express()
 const session = require('express-session')
 const passport = require('passport')
 const bodyParser = require('body-parser')
-const env = require('dotenv').load()
+const env = require('dotenv').config()
 const exphbs = require('express-handlebars')
 const PORT = process.env.PORT || 8080;
 const db = require('./models')
@@ -27,8 +27,17 @@ app.use(express.json());
 
 // For Handlebars
 // app.set('views', './views')
-app.engine('hbs', exphbs({ defaultLayout: "main", layoutsDir:'./views/layouts', extname: '.hbs' }));
+// app.engine('hbs', exphbs({ defaultLayout: "main", layoutsDir:'./views/layouts', extname: '.hbs' }));
+// app.set('view engine', '.hbs');
+
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  extname: '.hbs',
+  layoutsDir: path.join(__dirname, 'views/layouts')
+}));
 app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname, 'views'));
+
 
 //load passport strategies
 require('./config/passport/passport')(passport, models.user);

@@ -5,7 +5,6 @@ const path = require('path');
 
 
 module.exports = function (app) {
-  // POST route for adding new authors
   app.post('/api/user', function (req, res) {
     db.user.create(req.body).then(function (dbuser) {
       res.json(dbuser);

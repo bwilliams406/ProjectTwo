@@ -9,7 +9,7 @@ module.exports = function (app) {
         res.render("signin")
     });
 
-    app.get('/signup', isLoggedIn, function (req, res) {
+    app.get('/signup',  function (req, res) {
         res.render("signup")
     });
 
@@ -26,7 +26,7 @@ module.exports = function (app) {
     });
 
 
-    app.get("/dashboard", isLoggedIn, function (req, res) {
+    app.get("/dashboard", isLoggedIn,  function (req, res) {
         console.log(req.user)
         res.render("dashboard", { user: req.user })
     })

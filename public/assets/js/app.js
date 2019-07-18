@@ -1,4 +1,4 @@
-//console.log("app.js connected");
+console.log("app.js connected");
 $('.addUser').on('click', function (event) {
     event.preventDefault;
     window.location.replace('/signup')
@@ -28,4 +28,5 @@ $('#signin').on("click", function (event) {
             window.location.replace("/dashboard")
         }
     })
+
 })

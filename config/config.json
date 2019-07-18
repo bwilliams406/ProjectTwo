@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "root",
+      "password": "password",
       "database": "recipeInv_db",
       "host": "localhost",
       "port": 8889,
